@@ -1,8 +1,10 @@
 import random
 
+# Baraja
 cards = ["A", 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K"]
 suits = ["Espadas", "Diamante", "Corazones", "Trebol"]
 
+# Inicializa una mano
 def init_deck():
     deck = {}
     used_cards = set()
@@ -18,12 +20,8 @@ def init_deck():
             deck[card] = suit
     
     return deck
-            
-deck_one = init_deck()
-deck_second = init_deck()
-print(deck_one)
-print(deck_second)
 
+# Agrega una carta a la mano
 def get_card(ask_hand):
     hand = ask_hand
     
@@ -34,9 +32,7 @@ def get_card(ask_hand):
     
     return hand
 
-deck_one = get_card(deck_one)
-print(deck_one)
-
+# Calcula los puntos a una mano
 def calculate_points(hand):
     points = 0
     for card in hand:
@@ -48,7 +44,7 @@ def calculate_points(hand):
             points+= int(card)
     return points
 
-
+# Determina el resultado de la partida
 def results(first, second):
     point_first = calculate_points(first.keys())
     point_second = calculate_points(second.keys())
@@ -60,9 +56,14 @@ def results(first, second):
     else: 
         winner = "Empate"
         
-    return {"Jugador 1": point_first, "Jugador 2": point_second, "Ganador": winner}    
+    return {"Ganador": winner}    
 
-resultados = results(deck_one, deck_second)
-print(resultados)
+# Transforma el suits en su signo
+def convert_hand_to_symbols(hand):
+    suit_symbols = {"Espadas": "♠", "Corazones": "♥", "Diamante": "♦", "Trebol": "♣"}
     
+    return {
+        card: suit_symbols.get(suit, suit)
+        for card, suit in hand.items()
+    }
 

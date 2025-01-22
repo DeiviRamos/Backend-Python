@@ -1,0 +1,6 @@
+# Ignorar entornos virtuales
+env/
+
+app/__pycache__/
+services/__pycache__/
+
