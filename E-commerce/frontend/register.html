@@ -5,23 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="static/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
     <div class="container">
-        <div id="lottie-animation"></div>
-        <form id="login-form">
-            <h2>Login</h2>
+        <form id="register-form">
+            <h2>Sign up</h2>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
-            <button type="submit">Login</button>
+            <button type="submit">Register</button>
         </form>
-        <div class="register-link">
-            <p>Don't have an account?</p>
-            <a href="register.html" class="register-button">Register</a>
-        </div>
     </div>
-    <script src="static/scripts.js"></script>
+    <script src="static/register.js"></script>
 </body>
 </html>

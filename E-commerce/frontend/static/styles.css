@@ -2,6 +2,7 @@ body {
     margin: 0;
     font-family: 'Arial', sans-serif;
     background: linear-gradient(135deg, #74b9ff, #0984e3);
+    
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -75,6 +76,25 @@ button:hover {
     height: 300px;
     margin: 0 auto 20px;
 }
+
+.register-link {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.register-button {
+    color: #0984e3;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.register-button:hover {
+    color: #74b9ff;
+}
+
+
+
 
 @media (max-width: 600px) {
     .container {

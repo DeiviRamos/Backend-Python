@@ -1,15 +1,21 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from app.models import Base
+from dotenv import load_dotenv
+import os
 
-# URL conexion a PostgreSQL
-DATABASE_URL = ""
+load_dotenv()
 
-#Motor de la base de datos
+DATABASE_URL = os.getenv("DATABASE_URL")
+SECRET_KEY = os.getenv("SECRET_KEY")
+DEBUG = os.getenv("DEBUG") =="True"
+
 engine = create_engine(DATABASE_URL)
-
-#Sesion para interactuar con la base de datos
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
-#Crea las tablas de los modelos
-Base.metadata.create_all(bing=engine)
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
